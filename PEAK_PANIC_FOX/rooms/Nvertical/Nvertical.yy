@@ -1,12 +1,12 @@
 {
   "$GMRoom":"v1",
-  "%Name":"Room1",
+  "%Name":"Nvertical",
   "creationCodeFile":"",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_7D2AA374","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_7D2AA374","path":"rooms/Nvertical/Nvertical.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -15,10 +15,10 @@
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
-  "name":"Room1",
+  "name":"Nvertical",
   "parent":{
-    "name":"PEAK_PANIC_FOX",
-    "path":"PEAK_PANIC_FOX.yyp",
+    "name":"nivel",
+    "path":"folders/nivel.yy",
   },
   "parentRoom":null,
   "physicsSettings":{
