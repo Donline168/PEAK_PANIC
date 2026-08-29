@@ -10,8 +10,8 @@
   },
   "defaultScriptType":1,
   "Folders":[
-    {"$GMFolder":"","%Name":"Personajes","folderPath":"folders/Personajes.yy","name":"Personajes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"nivel","folderPath":"folders/nivel.yy","name":"nivel","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Personajes","folderPath":"folders/Personajes.yy","name":"Personajes","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[],
@@ -41,8 +41,8 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"salaprototipo","path":"rooms/salaprototipo/salaprototipo.yy",},},
     {"roomId":{"name":"Nvertical","path":"rooms/Nvertical/Nvertical.yy",},},
+    {"roomId":{"name":"salaprototipo","path":"rooms/salaprototipo/salaprototipo.yy",},},
     {"roomId":{"name":"rm_final","path":"rooms/rm_final/rm_final.yy",},},
   ],
   "templateType":"game",
