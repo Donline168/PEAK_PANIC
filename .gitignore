@@ -1,0 +1,33 @@
+# =========================
+# GameMaker Studio
+# =========================
+# Ignorar carpetas de compilación y caché
+*/.vs/
+*/options/
+*/bin/
+*/obj/
+*.lock
+*.manifest
+*.yyz
+
+# Ignorar archivos temporales del usuario y configuración local
+*/localapps.json
+*/layout_*.xml
+*/custom_keybinds.json
+*.yyp.converted
+
+# =========================
+# Sistemas Operativos
+# =========================
+# Linux
+*~
+.directory
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
