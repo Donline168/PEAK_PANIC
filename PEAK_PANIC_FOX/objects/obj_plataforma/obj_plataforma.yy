@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_Player",
+  "%Name":"obj_plataforma",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_Player",
+  "name":"obj_plataforma",
   "overriddenProperties":[],
   "parent":{
     "name":"nivel",
