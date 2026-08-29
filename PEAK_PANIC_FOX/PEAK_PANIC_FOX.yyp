@@ -19,6 +19,7 @@
   },
   "name":"PEAK_PANIC_FOX",
   "resources":[
+    {"id":{"name":"Obj_Player","path":"objects/Obj_Player/Obj_Player.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "resourceType":"GMProject",
