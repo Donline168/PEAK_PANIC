@@ -1,7 +1,7 @@
 // --- Variables de movimiento ---
-spd = 5;            // Velocidad de movimiento horizontal
+spd = 4.5;            // Velocidad de movimiento horizontal
 grav = 0.5;          // Fuerza de la gravedad
-jump_spd = -15;      // Fuerza de salto (valor negativo para ir hacia arriba)
+jump_spd = -13;      // Fuerza de salto (valor negativo para ir hacia arriba)
 
 // --- Variables de velocidad actual ---
 hsp = 0;             // Velocidad horizontal actual

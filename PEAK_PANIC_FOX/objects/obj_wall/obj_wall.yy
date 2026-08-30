@@ -3,6 +3,7 @@
   "%Name":"obj_wall",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_ZorritoLoco","path":"objects/obj_ZorritoLoco/obj_ZorritoLoco.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_wall",
@@ -19,7 +20,7 @@
   "physicsGroup":1,
   "physicsKinematic":false,
   "physicsLinearDamping":0.1,
-  "physicsObject":true,
+  "physicsObject":false,
   "physicsRestitution":0.1,
   "physicsSensor":false,
   "physicsShape":1,
@@ -33,7 +34,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
     "name":"Sprite2",
     "path":"sprites/Sprite2/Sprite2.yy",

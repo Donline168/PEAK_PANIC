@@ -38,6 +38,7 @@
     {"id":{"name":"salaprototipo","path":"rooms/salaprototipo/salaprototipo.yy",},},
     {"id":{"name":"muelto","path":"sprites/muelto/muelto.yy",},},
     {"id":{"name":"spr_fox_andando","path":"sprites/spr_fox_andando/spr_fox_andando.yy",},},
+    {"id":{"name":"Spr_fox_collision","path":"sprites/Spr_fox_collision/Spr_fox_collision.yy",},},
     {"id":{"name":"spr_fox_parao","path":"sprites/spr_fox_parao/spr_fox_parao.yy",},},
     {"id":{"name":"spr_fox_saltando","path":"sprites/spr_fox_saltando/spr_fox_saltando.yy",},},
     {"id":{"name":"Sprite2","path":"sprites/Sprite2/Sprite2.yy",},},

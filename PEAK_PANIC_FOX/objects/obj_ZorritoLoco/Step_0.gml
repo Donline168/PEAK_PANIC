@@ -11,7 +11,7 @@ hsp = move * spd;
 vsp += grav;
 
 // 4. Verificar si está en el suelo
-var on_ground = place_meeting(x, y + 1, obj_wall);
+var on_ground = place_meeting(x, y + 1, solido);
 
 // Saltar
 if (on_ground && key_jump) {
@@ -20,7 +20,7 @@ if (on_ground && key_jump) {
 
 // 5. Colisión Horizontal
 if (place_meeting(x + hsp, y, solido)) {
-    while (!place_meeting(x + sign(hsp), y, obj_wall)) {
+    while (!place_meeting(x + sign(hsp), y, solido)) {
         x += sign(hsp);
     }
     hsp = 0;
@@ -28,8 +28,8 @@ if (place_meeting(x + hsp, y, solido)) {
 x += hsp;
 
 // 6. Colisión Vertical
-if (place_meeting(x, y + vsp, obj_wall)) {
-    while (!place_meeting(x, y + sign(vsp), obj_wall)) {
+if (place_meeting(x, y + vsp, solido)) {
+    while (!place_meeting(x, y + sign(vsp), solido)) {
         y += sign(vsp);
     }
     vsp = 0;

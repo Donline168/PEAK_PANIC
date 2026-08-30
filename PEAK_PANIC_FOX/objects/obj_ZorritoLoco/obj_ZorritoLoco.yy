@@ -25,16 +25,24 @@
   "physicsRestitution":0.1,
   "physicsSensor":false,
   "physicsShape":1,
-  "physicsShapePoints":[],
+  "physicsShapePoints":[
+    {"x":0.0,"y":0.0,},
+    {"x":32.0,"y":0.0,},
+    {"x":32.0,"y":32.0,},
+    {"x":0.0,"y":32.0,},
+  ],
   "physicsStartAwake":true,
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_fox_parao",
-    "path":"sprites/spr_fox_parao/spr_fox_parao.yy",
+    "name":"Spr_fox_collision",
+    "path":"sprites/Spr_fox_collision/Spr_fox_collision.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"Spr_fox_collision",
+    "path":"sprites/Spr_fox_collision/Spr_fox_collision.yy",
+  },
   "visible":true,
 }

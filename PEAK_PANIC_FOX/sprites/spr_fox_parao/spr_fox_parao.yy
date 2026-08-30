@@ -12,18 +12,18 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"111d35be-61be-4204-8896-804225c56bf3","name":"111d35be-61be-4204-8896-804225c56bf3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"a1dbb403-a0bc-47dc-8640-932d59ca258d","name":"a1dbb403-a0bc-47dc-8640-932d59ca258d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"85cb4225-5a0f-48e8-ae25-24449a67d909","blendMode":0,"displayName":"default","isLocked":false,"name":"85cb4225-5a0f-48e8-ae25-24449a67d909","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"f39aa421-d7a2-484a-9f42-6957d19e2b50","blendMode":0,"displayName":"default","isLocked":false,"name":"f39aa421-d7a2-484a-9f42-6957d19e2b50","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_fox_parao",
   "nineSlice":null,
-  "origin":0,
+  "origin":7,
   "parent":{
     "name":"Personajes",
     "path":"folders/Personajes.yy",
@@ -69,14 +69,14 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"111d35be-61be-4204-8896-804225c56bf3","path":"sprites/spr_fox_parao/spr_fox_parao.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"fa0ba589-1f3d-4f51-8ad5-f7e6921f8010","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a1dbb403-a0bc-47dc-8640-932d59ca258d","path":"sprites/spr_fox_parao/spr_fox_parao.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"bf87866a-df88-4902-86dc-50e7270c061a","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
-    "yorigin":0,
+    "xorigin":16,
+    "yorigin":32,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
