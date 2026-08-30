@@ -10,15 +10,36 @@ hsp = move * spd;
 // 3. Aplicar gravedad
 vsp += grav;
 
-// 4. Verificar si está en el suelo
-var on_ground = place_meeting(x, y + 1, solido);
+// -------------------------------------------------------------
+// 4. VERIFICAR SI ESTÁ EN EL SUELO Y GUARDAR POSICIÓN SEGURA
+// -------------------------------------------------------------
+var on_ground = false;
+var snap_margin = 4; // Margen en píxeles de tolerancia
+
+if (vsp >= 0) {
+    // Comprobamos la colisión considerando el margen de tolerancia
+    var inst = instance_place(x, y + max(1, vsp + snap_margin), plataforma);
+    if (inst != noone) {
+        // Permitimos el aterizaje si los pies están sobre el borde o dentro del margen
+        if (bbox_bottom <= inst.bbox_top + snap_margin) {
+            on_ground = true;
+        }
+    }
+}
+
+if (on_ground) {
+    safe_x = x;
+    safe_y = y;
+}
 
 // Saltar
 if (on_ground && key_jump) {
     vsp = jump_spd;
 }
 
-// 5. Colisión Horizontal
+// -------------------------------------------------------------
+// 5. COLISIÓN HORIZONTAL (Mantiene tu código actual)
+// -------------------------------------------------------------
 if (place_meeting(x + hsp, y, solido)) {
     while (!place_meeting(x + sign(hsp), y, solido)) {
         x += sign(hsp);
@@ -27,21 +48,30 @@ if (place_meeting(x + hsp, y, solido)) {
 }
 x += hsp;
 
-// 6. Colisión Vertical
-if (place_meeting(x, y + vsp, solido)) {
-    while (!place_meeting(x, y + sign(vsp), solido)) {
-        y += sign(vsp);
+// -------------------------------------------------------------
+// 6. COLISIÓN VERTICAL (Con tolerancia para saltos justos)
+// -------------------------------------------------------------
+if (vsp >= 0) {
+    var inst = instance_place(x, y + vsp + snap_margin, plataforma);
+    
+    if (inst != noone) {
+        // Si los pies estaban por encima o dentro del rango de tolerancia respecto al borde superior
+        if (bbox_bottom <= inst.bbox_top + snap_margin + vsp) {
+            // Posicionamos al personaje exactamente alineado con la parte superior de la plataforma
+            y = inst.bbox_top - (bbox_bottom - y);
+            vsp = 0;
+        }
     }
-    vsp = 0;
 }
-y += vsp;
 
+// Aplicar velocidad vertical solo si no aterrizó en este frame
+y += vsp;
 // -------------------------------------------------------------
-// 7. CONTROL DE SPRITES Y ANIMACIONES
+// 7. CONTROL DE SPRITES Y ANIMACIONES (Con parpadeo)
 // -------------------------------------------------------------
-var spr_idle = spr_fox_parao;    // Sprite quieto
-var spr_walk = spr_fox_andando;    // Sprite caminando / corriendo
-var spr_jump = spr_fox_saltando;    // Sprite saltando / en el aire
+var spr_idle = spr_fox_parao;
+var spr_walk = spr_fox_andando;
+var spr_jump = spr_fox_saltando;
 
 if (!on_ground) {
     sprite_index = spr_jump;
@@ -57,27 +87,61 @@ if (move != 0) {
     image_xscale = move;
 }
 
+// Manejo del temporizador de invulnerabilidad y efecto visual (parpadeo)
+if (invulnerable) {
+    inv_timer--;
+    image_alpha = (inv_timer mod 6 < 3) ? 0.4 : 1.0; // Cambia transparencia rápidamente
+    
+    if (inv_timer <= 0) {
+        invulnerable = false;
+        image_alpha = 1.0; // Restablece visibilidad normal
+    }
+}
+
 // -------------------------------------------------------------
-// 8. LÓGICA DE CAÍDA Y PÉRDIDA DE VIDAS (ARCADE)
+// 8. COLISIÓN CON ENEMIGOS U OBSTÁCULOS
+// -------------------------------------------------------------
+var hit_enemy = instance_exists(obj_enemigo) && place_meeting(x, y, obj_enemigo);
+var hit_hazard = instance_exists(obj_obstaculo) && place_meeting(x, y, obj_obstaculo);
+
+// Solo activa daño si NO está en periodo de invulnerabilidad
+if ((hit_enemy || hit_hazard) && !is_dead && !invulnerable) {
+    is_dead = true;
+}
+
+// -------------------------------------------------------------
+// 9. LÓGICA DE MUERTE, CAÍDA Y RESPAWN
 // -------------------------------------------------------------
 var current_cam_y = camera_get_view_y(view_camera[0]);
 var current_cam_h = camera_get_view_height(view_camera[0]);
 
-// Detectar si el personaje cayó por debajo del límite visible de la cámara
-if (y > current_cam_y + current_cam_h + 32 && !is_dead) {
-    is_dead = true;         // Bloquea ejecuciones repetidas
-    global.vidas -= 1;       // Resta una vida
+// Verificar si cayó por debajo del límite inferior visible de la cámara
+if (y > current_cam_y + current_cam_h + 32) {
+    is_dead = true;
+}
+
+// Procesar la pérdida de 1 sola vida al activarse 'is_dead'
+if (is_dead) {
+    global.vidas -= 1; // Resta exactametne 1 vida
 
     if (global.vidas > 0) {
-        // Aún le quedan vidas: reinicia el nivel actual
-        room_restart();
+        // Respawn en la última plataforma tocada
+        x = safe_x;
+        y = safe_y;
+        hsp = 0;
+        vsp = 0;
+        
+        // Activar 90 fotogramas (1.5 segundos a 60 FPS) de inmunidad
+        invulnerable = true;
+        inv_timer = 90;
+        
+        is_dead = false; // Desbloquea la lógica
     } else {
-        // Se quedaron sin vidas: Fin de la partida
-        // Puedes cambiar 'rm_final' por el nombre de tu pantalla de Game Over o reiniciar todo el juego
+        // Game Over cuando se acaban las vidas
         if (room_exists(rm_final)) {
             room_goto(rm_final);
         } else {
-            game_restart(); // Reinicia el juego completo si no tienes pantalla de Game Over
+            game_restart();
         }
     }
 }

@@ -1,13 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_ZorritoLoco",
+  "%Name":"obj_obstaculo",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_ZorritoLoco",
+  "name":"obj_obstaculo",
   "overriddenProperties":[],
   "parent":{
     "name":"Personajes",
@@ -37,12 +36,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_fox_parao",
-    "path":"sprites/spr_fox_parao/spr_fox_parao.yy",
+    "name":"Spr_Roca",
+    "path":"sprites/Spr_Roca/Spr_Roca.yy",
   },
-  "spriteMaskId":{
-    "name":"Spr_fox_collision",
-    "path":"sprites/Spr_fox_collision/Spr_fox_collision.yy",
-  },
+  "spriteMaskId":null,
   "visible":true,
 }
