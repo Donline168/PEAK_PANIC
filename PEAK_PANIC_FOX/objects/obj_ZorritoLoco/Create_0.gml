@@ -1,20 +1,25 @@
 // --- Variables de movimiento ---
-spd = 5;            // Velocidad de movimiento horizontal
-grav = 0.5;          // Fuerza de la gravedad
-jump_spd = -15;      // Fuerza de salto (valor negativo para ir hacia arriba)
+spd = 4.5;
+grav = 0.5;
+jump_spd = -10;
 
-// --- Variables de velocidad actual ---
-hsp = 0;             // Velocidad horizontal actual
-vsp = 0;             // Velocidad vertical actual
+hsp = 0;
+vsp = 0;
 
-// --- Objeto de colisión ---
-// Cambia 'obj_wall' por el nombre exacto de tu objeto pared/plataforma sólida
-solido = obj_wall;
+solido = obj_calle;
+plataforma = obj_techito
 
 // --- Sistema de Vidas ---
 if (!variable_global_exists("vidas")) {
     global.vidas = 3;
 }
 
-// Variable para evitar restar múltiples vidas en un mismo frame de caída
 is_dead = false;
+
+// --- Invulnerabilidad al recibir daño ---
+invulnerable = false; // Indica si el personaje es inmune temporalmente
+inv_timer = 0;        // Contador para quitar la invulnerabilidad
+
+// --- Registro de Posición Segura ---
+safe_x = x;
+safe_y = y;
