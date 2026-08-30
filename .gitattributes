@@ -1,2 +1,5 @@
 # Forzar a Git a usar saltos de línea unificados (LF)
 * text=auto eol=lf
+*.ypp merge=union text
+*.yy merge=union text
+*.jason text

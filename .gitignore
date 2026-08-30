@@ -10,6 +10,17 @@
 *.manifest
 *.yyz
 
+#Game Maker Cache and Outputs
+config/
+cache/
+export/
+*.win
+*.exe
+*.app
+
+#User Especific Layout Settings
+local_settings.json
+
 # Ignorar archivos temporales del usuario y configuración local
 */localapps.json
 */layout_*.xml
