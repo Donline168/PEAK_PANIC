@@ -1,40 +1,55 @@
-// 1. Obtener entradas del teclado
+// -------------------------------------------------------------
+// 1. OBTENER ENTRADAS DEL TECLADO
+// -------------------------------------------------------------
 var key_left  = keyboard_check(vk_left) || keyboard_check(ord("A"));
 var key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
-var key_jump  = keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("W"));
 
-// 2. Calcular movimiento horizontal
+// Registra cuando se presiona el botón por primera vez
+var key_jump_pressed = keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("W"));
+
+// Registra si se MANTIENE o SE SUELTA el botón
+var key_jump_held    = keyboard_check(vk_space) || keyboard_check(ord("W"));
+var key_jump_released = keyboard_check_released(vk_space) || keyboard_check_released(ord("W"));
+
+// -------------------------------------------------------------
+// 2. CÁLCULO DE MOVIMIENTO HORIZONTAL Y GRAVEDAD
+// -------------------------------------------------------------
 var move = key_right - key_left;
 hsp = move * spd;
+
+vsp += grav;
 
 // 3. Aplicar gravedad
 vsp += grav;
 
 // -------------------------------------------------------------
-// 4. VERIFICAR SI ESTÁ EN EL SUELO Y GUARDAR POSICIÓN SEGURA
+// 4. VERIFICAR SUELO Y CONTROL DE SALTO VARIABLE
 // -------------------------------------------------------------
 var on_ground = false;
-var snap_margin = 4; // Margen en píxeles de tolerancia
+var snap_margin = 4;
 
 if (vsp >= 0) {
-    // Comprobamos la colisión considerando el margen de tolerancia
     var inst = instance_place(x, y + max(1, vsp + snap_margin), plataforma);
     if (inst != noone) {
-        // Permitimos el aterizaje si los pies están sobre el borde o dentro del margen
-        if (bbox_bottom <= inst.bbox_top + snap_margin) {
+        if (bbox_bottom <= inst.bbox_top + snap_margin + vsp) {
             on_ground = true;
+            if (!object_is_ancestor(inst.object_index, obj_tierra) && inst.object_index != obj_tierra) {
+                safe_x = x;
+                safe_y = y;
+            }
         }
     }
 }
 
-if (on_ground) {
-    safe_x = x;
-    safe_y = y;
+// Iniciar salto completo desde el suelo
+if (on_ground && key_jump_pressed) {
+    vsp = jump_spd; // Aplica la fuerza máxima de inicio
 }
 
-// Saltar
-if (on_ground && key_jump) {
-    vsp = jump_spd;
+// CORTE DE SALTO VARIABLE:
+// Si el jugador suelta el botón mientras el personaje está subiendo, recortamos el impulso
+if (key_jump_released && vsp < 0) {
+    vsp = vsp * jump_cut;
 }
 
 // -------------------------------------------------------------

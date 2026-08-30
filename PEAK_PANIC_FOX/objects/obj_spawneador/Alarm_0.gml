@@ -13,7 +13,7 @@ var random_x = random_range(cam_x + margin, cam_x + cam_w - margin);
 var spawn_y = cam_y - 32;
 
 // 5. Crear la instancia del obstáculo
-instance_create_layer(random_x, spawn_y, "Instances", obj_obstaculo);
+instance_create_layer(random_x, spawn_y, "Instancias_personaje", obj_obstaculo);
 
 // 6. Reiniciar la alarma con un nuevo intervalo aleatorio
 alarm[0] = irandom_range(spawn_rate_min, spawn_rate_max);
